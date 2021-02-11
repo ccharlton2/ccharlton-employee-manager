@@ -23,19 +23,30 @@ const PORT =  process.env.PORT || 5000
  app.use(express.urlencoded({extended:true}))
  app.use(express.json())
 
-
 //Middleware Serving Static Pages from client directory
 // second parameter is an configuration object of how we want
 // the static file server to run.
 app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 'htm']})
 );
 
- 
  // Routing Middleware.  
  // login route.
+ // Access form data that uses the POST method from the req body
+ // Tell express that you want to access POST request body
+ // Setup express.urlencoded({extended:true})
  app.post('/login', (req, res)=>{
    console.log(req.body)
-   res.send("trying to login")
+   // redirect
+   // sending data back or files
+   // below might help for bonus
+   // res.send() -- text or simple markup
+   // res.json() -- send json back
+   // res.sendFile -- a file
+   // res.render -- template
+
+   // pass the user email and password to a loginService
+   // read the user file and check the email
+   res.sendFile(path.join(__dirname, '../client/dashboard.html'))
  })
 
 // Final Middleware 
