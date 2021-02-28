@@ -1,9 +1,14 @@
 const fileService = require("./fileService");
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 exports.authenticate = (credential) => {
   const { username, email, password } = { ...credential };
-  const authObj = { validUsername:false, validEmail: false, validPassword: false, isValid: false };
+  const authObj = {
+    validUsername: false,
+    validEmail: false,
+    validPassword: false,
+    isValid: false,
+  };
 
   if (emailIsValid(email)) {
     authObj.validEmail = true;
@@ -18,31 +23,47 @@ exports.authenticate = (credential) => {
   }
 
   if (authObj.validEmail === true && authObj.validPassword === true) {
+    // add a unique id to the user object
     credential.Id = uuidv4();
+    
+    // add the user to users.json
     addUser(credential);
     authObj.isValid = true;
   }
 
+  // valid user object ? return true : return formatted error object
   const auth0 = authObj.isValid ? { isValid: true } : formatErrors(authObj);
   return auth0;
 };
 
+/* 
+  Writes a user object to users.json
+ */
 function addUser(user) {
-    fileService.writeFileContents("../data/users.json", user);
+  fileService.writeFileContents("../data/users.json", user);
 }
 
+/* 
+  Checks for whitespace in a string using a regex pattern
+ */
 function hasWhiteSpace(s) {
   return /\s/g.test(s);
 }
 
+/* 
+  Validates the username field
+ */
 function usernameIsValid(username) {
-    if (username.length <255 && !hasWhiteSpace(username)) {
-        return true;
-    } else {      
-        return false;
-    }
+  if (username.length < 255 && !hasWhiteSpace(username)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
+/* 
+  Validates the email field using a regex pattern
+ */
 function emailIsValid(email) {
   if (/\S+@\S+\.\S+/.test(email) && !hasWhiteSpace(email)) {
     return true;
@@ -51,6 +72,9 @@ function emailIsValid(email) {
   }
 }
 
+/* 
+  Validates the password field using a regex pattern
+ */
 function passwordIsValid(password) {
   var passw = /^[A-Za-z]\w{7,14}$/;
   if (password.match(passw) && !hasWhiteSpace(password)) {
@@ -60,6 +84,7 @@ function passwordIsValid(password) {
   }
 }
 
+// format errors for display on returned webpage
 const formatErrors = function (user) {
   let passwordWarning = "";
   let emailWarning = "";

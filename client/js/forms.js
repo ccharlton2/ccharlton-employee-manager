@@ -1,3 +1,4 @@
+// override default html input validation message
 document.addEventListener("DOMContentLoaded", function() {
     var elements = document.getElementsByTagName("input");
     for (var i = 0; i < elements.length; i++) {

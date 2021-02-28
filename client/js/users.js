@@ -12,6 +12,7 @@ fetch('/api/v1/users')
       const userView = `
         <aside class="card">
           <div class="card-layout">
+            <strong>ID:</strong> <span class="row">${data[i].Id}</span>
             <strong>Username:</strong> <span class="row">${data[i].username}</span>
             <strong>Email:</strong> <span class="row">${data[i].email}</span>
             <strong>Password:</strong> <span class="row">${data[i].password}</span>

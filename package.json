@@ -1,7 +1,7 @@
 {
-  "name": "authentication",
+  "name": "ccharlton-employee-manager",
   "version": "1.0.0",
-  "description": "simple use of passport-local authentiction",
+  "description": "simple authentication",
   "main": "server.js",
   "scripts": {
     "server": "nodemon server/index.js  --watch ./server",
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "none"
+    "url": "https://github.com/ccharlton2/ccharlton-employee-manager"
   },
   "keywords": [
     "none"
   ],
-  "author": "james foley",
+  "author": "christian charlton",
   "license": "MIT",
   "dependencies": {
     "cookie-session": "^1.4.0",
