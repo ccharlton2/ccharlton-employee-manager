@@ -4,7 +4,7 @@
 This is a project created to showcase user registration and authentication via custom middleware and cookie based authentication.
 
 ## What can this project do?
-Currently you can register a new user that will be saved to a .json file [users.json](/server/data/user.json). 
+Currently you can register a new user that will be saved to a .json file [users.json](/server/data/users.json). 
 
 You can see a list of users by clicking on the "users" nav-link in either home, login, or register.
 
