@@ -1,5 +1,5 @@
 # Employee Manager Login
-
+DB -- MySQL and Sequelize
 ### Setting Up A Basic User Authentication System.
 Were going to setup a basic user login form to the dashboard.
 Restrict access to the dashboard.

@@ -226,7 +226,7 @@ th {
       grid-template-columns: 298px 1fr;
   -ms-grid-rows: auto calc(100vmax - 60px);
       grid-template-rows: auto calc(100vmax - 60px);
-      grid-template-areas: "strip strip" "sidebar panels";
+      grid-template-areas: "strip strip" "sidebar panels";
 }
 
 .control-strip {
@@ -377,5 +377,36 @@ th {
 
 .search img {
   width: 1.25rem;
+}
+
+.card-layout {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 10px;
+}
+
+.card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* this adds the "card" effect */
+  padding: 16px;
+  text-align: left;
+  margin: 32px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f1f1f1;
+}
+
+.row:after {
+  content: "";
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: table;
+  clear: both;
 }
 /*# sourceMappingURL=styles.css.map */

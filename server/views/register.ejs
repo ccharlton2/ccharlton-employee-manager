@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul >
+        <li><a href="index.html">home</a></li>
+        <li><a href="users.html">users</a></li>
+        <li><a href="login">account login</a></li>
+    </ul>
+</nav>
+      <aside class="app-form">
+        <header><h2 class="center">Create your account</h2></header>
+          <form id="register" action="/register" method="POST">
+       
+            <div class="form-control">
+                <label for="username">Please enter a username</label>
+                <input id="username" type="text" pattern="\S+" required name="username" placeholder="username" value="<%- username %>"/>
+                <span class="warning"><%- usernameWarning %></span></label>
+            </div>
+              <div class="form-control">
+                  <label for="email">Enter an valid email address</label>
+                  <input id="email" type="text" pattern="\S+" required name="email" placeholder="email address for the account" value="<%- email %>"/>
+                  <span class="warning"><%- emailWarning %></span></label>
+              </div>
+
+              <div class="form-control">
+                <label for="password">Enter a secure password</label>
+                <input id="password" type="password" pattern="\S+" required name="password" placeholder="password for the account" value="<%- password %>"/>
+                <span class="warning"><%- passwordWarning %> </span></label>
+            </div>
+
+            <div class="form-control">
+             <button type="submit">create account</button>
+            </div>
+          </form>
+      </aside>
+      <script src="js/forms.js"></script>
+</body>
+</html>
